@@ -197,26 +197,51 @@ var Bracket = (function() {
 
 
 
-function getURLParams() {
-    var params = (window.location.href.split("?")[1] || "").split("&");
-    var paramsJSON = {};
+(function() {
     
-    for (var i = 0; i < params.length; i++) {
-        var paramData = params[i].split("=");
-        if (!paramData[1]) {
-            paramData[1] = true;
+    function getURLParams() {
+        var params = (window.location.href.split("?")[1] || "").split("&");
+        var paramsJSON = {};
+        
+        for (var i = 0; i < params.length; i++) {
+            var paramData = params[i].split("=");
+            if (!paramData[1]) {
+                paramData[1] = true;
+            }
+            if (paramData[0].length > 0) {
+                paramsJSON[paramData[0]] = paramData[1];
+            }
         }
-        if (paramData[0].length > 0) {
-            paramsJSON[paramData[0]] = paramData[1];
-        }
+        
+        return paramsJSON;
     }
     
-    return paramsJSON;
-}
-
-
-
-(function() {
+    var titles = ["Mario", "Luigi", "Peach", "Bowser", "Yoshi", "Donkey Kong",
+        "Link", "Zelda", "Sheik", "Ganondorf", "Samus", "Kirby", "Fox",
+        "Falco", "Pikachu", "Jigglypuff", "Captain Falcon", "Ness",
+        "Ice Climbers", "Marth", "Mr. Game & Watch", "Diddy Kong", "Toon Link",
+        "Zero Suit Samus", "Meta Knight", "King Dedede", "Wolf",
+        "Pokemon Trainer", "Lucario", "Lucas", "Ike", "Pit", "Wario",
+        "Olimar", "R.O.B.", "Solid Snake", "Sonic the Hedgehog"];
+        
+    var stages = ["Battlefield", "Mario Circuit", "Final Destruction",
+        "Delfino Plaza", "Mushroomy Kingdom", "Luigi's Mansion", "Mario Bros.",
+        "Yoshi's Island", "Rumble Falls", "75m", "Bridge of Eldin",
+        "Pirate Ship", "Norfair", "Frigate Orpheon", "Halberd", "Lylat Cruise",
+        "Pokemon Stadium 2", "Spear Pillar", "Port Town Aero Drive",
+        "New Pork City", "Summit", "Castle Siege", "Flat Zone 2", "Skyworld",
+        "Warioware Inc.", "Distant Planet", "Smashville", "PictoChat",
+        "Hanenbow", "Shadow Moses Island", "Green Hill Zone", "Rainbow Cruise",
+        "Jungle Japes", "Temple", "Brinstar", "Green Greens", "Corneria",
+        "Pokemon Stadium", "Big Blue", "Onett"];
+    
+    function getRandomTitle() {
+        return titles[Math.floor(Math.random() * titles.length)];
+    }
+    
+    function getRandomStage() {
+        return stages[Math.floor(Math.random() * stages.length)];
+    }
     
     var players = (getURLParams().players || "").split(",");
     
@@ -225,7 +250,9 @@ function getURLParams() {
     var n = 1;
     
     do {
-        var layer = new Bracket.Layer({});
+        var layer = new Bracket.Layer({
+            title: getRandomStage()
+        });
         for (var i = 0; i < n; i++) {
             var leadsTo;
             if (layers.length) {
@@ -236,8 +263,12 @@ function getURLParams() {
             }
             layer.addGroup(new Bracket.Group({
                 slots: [
-                    new Bracket.Slot({}),
-                    new Bracket.Slot({})
+                    new Bracket.Slot({
+                        title: getRandomTitle()
+                    }),
+                    new Bracket.Slot({
+                        title: getRandomTitle()
+                    })
                 ],
                 leadsTo: leadsTo
             }));

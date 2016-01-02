@@ -21,10 +21,15 @@ body {
 
 .smash-bracket-layer {
     position: absolute;
-    width: 15em;
-    top: 3em;
+    width: 18em;
+    top: 5em;
     min-height: 100%;
     margin: 0 2em;
+}
+
+.smash-bracket-layer-title {
+    text-align: center;
+    font-size: 2em;
 }
 
 .smash-bracket-layer-container {
@@ -32,7 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    top: 0;
+    top: 2em;
     left: 0;
     min-height: 100%;
     right: 0;
