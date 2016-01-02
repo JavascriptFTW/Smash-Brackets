@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: #FFF;
+}
+
+.smash-bracket-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.smash-bracket-layer {
+    position: absolute;
+    width: 15em;
+    top: 3em;
+    min-height: 100%;
+    margin: 0 2em;
+}
+
+.smash-bracket-layer-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    right: 0;
+}
+
+.smash-bracket-slot {
+    background-color: #D32F2F;
+    border-radius: 0.25em;
+    text-align: center;
+    display: inline-block;
+    width: 17em;
+    margin: 0.5em;
+    box-shadow: 0 0 25px 0 #000;
+}
+
+.smash-bracket-slot-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 0.15em;
+    margin-bottom: 0.25em;
+}
+
+.smash-bracket-slot-player {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 2em;
+    line-height: 2em;
+    font-size: 1.25em;
+    margin-bottom: 0.5em;
+}
+
+.smash-bracket-slot-advance {
+    position: relative;
+    background: none;
+    border: none;
+    font-size: 1.25em;
+    color: #FFF;
+    background-color: #FF6D00;
+    width: 100%;
+    height: 2em;
+    line-height: 2em;
+    cursor: pointer;
+    box-shadow: 0 0 25px 0 #000;
+}
+
+.smash-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1000000;
+    background-size: auto 100%;
+    -webkit-filter: brightness(0.3);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(http://pre03.deviantart.net/c178/th/pre/f/2009/221/7/b/super_smash_bros__brawl_by_chetrippo.png);
+    background-color: #000;
+}
+
+.smash-credits {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 1em;
+    opacity: 0.54;
+}
+
+.smash-bracket-tree-title {
+    font-size: 2em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 1.75em;
+    line-height: 1.75em;
+    right: 0;
+    text-align: center;
+    z-index: 1000;
+    background-color: #C62828;
+    box-shadow: 0 0 20px 0 #000;
+}
+
+a {
+    color: #FF6D00;
+}
